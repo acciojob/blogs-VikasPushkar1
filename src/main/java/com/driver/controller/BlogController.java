@@ -1,6 +1,7 @@
 package com.driver.controller;
 
 
+import com.driver.models.Blog;
 import com.driver.services.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,8 @@ public class BlogController {
                                      @RequestParam String title,
                                      @RequestParam String content) {
         // Create a blog and add it under given user
-        blogService.createAndReturnBlog(userId,title,content);
+        Blog blog=blogService.createAndReturnBlog(userId,title,content);
+
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
